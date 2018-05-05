@@ -1,0 +1,2 @@
+# zzuARTensorflow2
+在最新的zzuartensorflow版本的基础上新建的项目，，原项目不小心添加啦大文件，导致历史文件过大，不便于克隆
