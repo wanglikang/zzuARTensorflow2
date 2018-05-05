@@ -1,0 +1,7 @@
+
+
+https://developer.nvidia.com/rdp/cudnn-archive#a-collapse712-9
+
+https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.1.2/prod/9.0_20180316/Ubuntu16_04-x64/libcudnn7_7.1.2.21-1+cuda9.0_amd64
+https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.1.2/prod/9.0_20180316/Ubuntu14_04-x64/libcudnn7_7.1.2.21-1+cuda9.0_amd64
+http://developer.download.nvidia.com/compute/machine-learning/cudnn/secure/v7.1.2/prod/9.0_20180316/Ubuntu14_04-x64/libcudnn7_7.1.2.21-1%2Bcuda9.0_amd64.deb?xj9JHZDPvWL_Pn7cC9nDAxaCdTWwyyOm-wXPwRLkEQUhfWtI2_QUGj1k6VOSnK-G0-W58ZvaNt4t3ETIZrWTI1ErSqaVifGS1lcqzIWszMDO1nYkVN0SAeNSGZLutQ18vKX9O4jBFfGZmso8kNny77KzuTIN6RQqG2tsdM0WwYrob0Yb_VTCtFG0JWxZ1wSydrgCpQmVVGnmiaBMup9K1ZYx60I6Wrvitlp3O9dVCKEI1-9g_-4
