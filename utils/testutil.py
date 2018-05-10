@@ -1,3 +1,4 @@
+#coding:utf-8
 from utils.testdata_util import data_util
 import os
 import datetime

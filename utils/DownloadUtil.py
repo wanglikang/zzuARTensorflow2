@@ -1,3 +1,4 @@
+#coding:utf-8
 import urllib.request
 import os
 import yolo.myconfig as cfg

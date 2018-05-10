@@ -1,3 +1,4 @@
+#coding:utf-8
 from qiniu import Auth, put_file, etag, urlsafe_base64_encode
 import qiniu.config
 import yolo.myconfig as cfg
