@@ -5,7 +5,7 @@ import datetime
 #
 print("first install some necessary lib")
 os.system('pip install -r requestments.txt')
-
+listenerport = 10002
 qiniuDomain = 'p7ijy2tin.bkt.clouddn.com'
 '''
 access_key = 'mMQxjyif6Uk8nSGIn9ZD3I19MBMEK3IUGngcX8_p'

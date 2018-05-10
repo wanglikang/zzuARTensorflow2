@@ -12,6 +12,7 @@ from utils.timer import Timer
 from yolo.yolo_net import YOLONet
 from utils.myData_util import MyDataUtil
 from utils.ZipUtil import ZipUtil
+
 import easydict
 
 slim = tf.contrib.slim
@@ -109,11 +110,11 @@ class Solver(object):
 
             time.sleep(1)
             isTest = True
-            if step % self.save_iter == 0:
-            #if step == 1:#测试保存功能时使用此行
+            #if step % self.save_iter == 0:
+            if step == 1:#测试保存功能时使用此行
                 self.saveData(step)
-             #   break
-        #print("假装已经训练完成")
+                break
+        print("假装已经训练完成")
 
     def saveData(self,step):
         print('{} Saving checkpoint file to: {}'.format(
@@ -154,17 +155,28 @@ class Solver(object):
         print("%d ops in the final graph." % len(output_graph_def.node))
         ####################################################################################################
 
+
         freezetime = datetime.datetime.now().strftime('%m-%d-%H-%M-%S')
         zu = ZipUtil()
-        # 添加啦step参数，可以按照训练对部署进行压缩，，不用全部压缩了
+        zipfilename = cfg.DATA_UploadZipFileName +'.'+str(step)+ '.' + freezetime
+        # 添加啦step参数，可以按照训练对部分进行压缩，，不用全部压缩了
         zu.zip_dir(os.path.join(cfg.OUTPUT_DIR, cfg.DATA_VERSION),
                    step,
-                   cfg.DATA_UploadZipFileName +'.'+str(step)+ '.' + freezetime)
-        qu = Uploader()
-        qu.setQiniuKEY('mMQxjyif6Uk8nSGIn9ZD3I19MBMEK3IUGngcX8_p',
+                   zipfilename)
+        uploader = Uploader()
+        uploader.setQiniuKEY('mMQxjyif6Uk8nSGIn9ZD3I19MBMEK3IUGngcX8_p',
                        'J5gFhdpQ-1O1rkCnlqYnzPiH3XTst2Szlv9GlmQM')
-        qu.upload(cfg.DATA_UploadZipFileName + '.' + freezetime,
-                  cfg.DATA_UploadZipFileName + '.' + freezetime).start()
+
+        #uploader.upload2qiniu(cfg.DATA_UploadZipFileName + '.' + freezetime,zipfilename).start()
+        sendData = {"state":"prepared",
+                "filename":str(zipfilename),
+                "filepath":os.path.join(cfg.OUTPUT_DIR, cfg.DATA_VERSION,zipfilename),
+                "step":step,
+                }
+
+        uploader.notifyForTrans(sendData)
+
+
 
     def save_cfg(self):
         with open(os.path.join(self.output_dir, 'config.txt'), 'w') as f:

@@ -60,13 +60,14 @@ class MyDataUtil(object):
             print("仅仅用于test使用，不需要进行prepareData()")
         else:
             print(os.getcwd())
+            self.prepareData()
             classf = open(os.path.join(cfg.DATA_ROOT_PATH, 'classes.txt'), 'r')#得到classes
             for line in classf.readlines():
                 line = line.replace('\n', '')
                 if len(str(line)) > 0:
                     cfg.CLASSES.append(str(line))
 
-            self.prepareData()
+#            self.prepareData()
             print('ok for prepareData()')
             self.data_root_path = data_root_path
             self.cache_path = cfg.CACHE_PATH
@@ -205,7 +206,10 @@ class MyDataUtil(object):
             #if obj.find('name').text.lower().strip()=='zhongloud':
                 #print(index)
 
-            cls_ind = self.class_to_ind[obj.find('name').text.lower().strip()]
+            try:
+                cls_ind = self.class_to_ind[obj.find('name').text.lower().strip()]
+            except Exception as e:
+                print("error in {}".format(index))
 
 
             boxes = [(x2 + x1) / 2.0, (y2 + y1) / 2.0, x2 - x1, y2 - y1]
