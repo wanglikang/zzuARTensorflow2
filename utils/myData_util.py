@@ -45,6 +45,7 @@ class MyDataUtil(object):
             f.flush()
             f.close()
             preweighturl = downloader.httpDomain + '/' + cfg.WEIGHTS_FILE
+            print("start to download prrtrainWeightFile from{}".format(preweighturl))
             preweightFilepath = downloader.download(preweighturl, cfg.WEIGHTS_DIR)
             print("download preweights from:{};\nfile:{}".format(preweighturl, preweightFilepath))
 
