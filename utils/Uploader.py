@@ -54,11 +54,25 @@ class Uploader(threading.Thread):
         msocket.connect(('localhost', cfg.listenerport))
 
         #msocket.send("this is a message".encode("utf-8"))
-        msocket.send(str(jsonData).encode("utf-8"))
+        self.sendLenAndData(msocket,jsonData)
+
         msocket.close()
 
+    def int2byte4(self,number):
+        bytes = bytearray(4)
+        bytes[0] = number >> 24 & 0xff
+        bytes[1] = number >> 16 & 0xff
+        bytes[2] = number >> 8 & 0xff
+        bytes[3] = number & 0xff
+        #print("{}:{}:{}:{}".format(bytes[0], bytes[1], bytes[2], bytes[3]))
+        return bytes
 
-        pass
+    def sendLenAndData(self,msocket, data):
+        datalen = self.int2byte4(len(str(data)))
+        msocket.send(datalen)
+        msocket.send(str(data).encode("utf-8"))
+
+
 '''#测试用例
 uploader = Uploader()
 uploader.upload2aliyun(12345)

@@ -18,7 +18,7 @@ class UnzipUtil(object):
         # for names in zfobj.namelist():
         #     print(names)
         #     zfobj.extract(names, unziptodir + "_files/")
-        print("解压文件成功")
+        print("sucess unzip file")
     #unzip_file('yolo.zip', 'unziopyolo')
     def delSelf(self):
         os.remove(self.selfname)
