@@ -31,7 +31,8 @@ OUTPUT_DIR = os.path.join(DATA_ROOT_PATH, 'output')
 WEIGHTS_DIR = os.path.join(DATA_ROOT_PATH, 'weights')
 
 #WEIGHTS_FILE = None
-WEIGHTS_FILE = os.path.join(DATA_ROOT_PATH, 'weights','YOLO_small.ckpt')
+#WEIGHTS_FILE = os.path.join(DATA_ROOT_PATH, 'weights','YOLO_small.ckpt')
+WEIGHTS_FILE = 'YOLO_small.ckpt'
 
 '''
 CLASSES = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus',
