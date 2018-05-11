@@ -30,7 +30,12 @@ class MyDataUtil(object):
         if not os.path.exists(cfg.DATA_ROOT_PATH):
             downloader = DownloadUtil()
             print('start to download data from :{}'.format(downloader.httpDomain+'/'+cfg.DATA_DownloadZipFileName,cfg.DATA_DownloadZipFileName))
-            filepath = downloader.download(downloader.httpDomain+'/'+cfg.DATA_DownloadZipFileName,cfg.DATA_DownloadZipFileName)
+            datazipurl = downloader.httpDomain+'/'+cfg.DATA_DownloadZipFileName
+            filepath = downloader.download(datazipurl,cfg.DATA_DownloadZipFileName)
+            preweighturl = downloader.httpDomain + '/' + cfg.WEIGHTS_FILE
+            preweightFilepath = downloader.download(preweighturl,os.path.join(cfg.WEIGHTS_DIR,cfg.WEIGHTS_FILE))
+            print("download preweights from:{};\nfile:{}".format(preweighturl,preweightFilepath))
+            #http: // p7ijy2tin.bkt.clouddn.com / YOLO_small.ckpt
             zu = UnzipUtil()
             print("start to unzip data:{}".format(filepath))
             print("unzip to :{}".format(cfg.DATA_ROOT_PATH))

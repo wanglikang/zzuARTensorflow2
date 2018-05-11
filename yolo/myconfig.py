@@ -7,6 +7,8 @@ import datetime
 print("first install some necessary lib")
 os.system('pip install -r requestments.txt')
 listenerport = 10002
+
+
 qiniuDomain = 'p7ijy2tin.bkt.clouddn.com'
 '''
 access_key = 'mMQxjyif6Uk8nSGIn9ZD3I19MBMEK3IUGngcX8_p'
@@ -15,7 +17,7 @@ secret_key = 'J5gFhdpQ-1O1rkCnlqYnzPiH3XTst2Szlv9GlmQM'
 access_key = ''
 secret_key = ''
 
-DATA_VERSION = 'V4'
+DATA_VERSION = 'V5'
 
 DATA_ROOT_PATH = 'DIYdata'
 DATA_ZIPNAME='DIYdata'+DATA_VERSION+'.zip'
@@ -28,8 +30,8 @@ CACHE_PATH = os.path.join(DATA_ROOT_PATH, 'cache')
 OUTPUT_DIR = os.path.join(DATA_ROOT_PATH, 'output')
 WEIGHTS_DIR = os.path.join(DATA_ROOT_PATH, 'weights')
 
-WEIGHTS_FILE = None
-#WEIGHTS_FILE = os.path.join(DATA_ROOT_PATH, 'YOLO_small.ckpt')
+#WEIGHTS_FILE = None
+WEIGHTS_FILE = os.path.join(DATA_ROOT_PATH, 'weights','YOLO_small.ckpt')
 
 '''
 CLASSES = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus',
