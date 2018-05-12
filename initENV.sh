@@ -6,6 +6,7 @@ apt-get install python3-dev
 apt-get install python3-pip
 rm /usr/bin/python
 ln -s /usr/bin/python3 /usr/bin/python
+apt-get install locales-all
 
 
 pip3 install tensorflow-gpu==1.4.0

@@ -1,5 +1,6 @@
 #coding:utf-8
 import os
+import sys
 import argparse
 import datetime
 import time
@@ -17,7 +18,6 @@ from utils.ZipUtil import ZipUtil
 import easydict
 
 slim = tf.contrib.slim
-
 
 class Solver(object):
 
@@ -150,7 +150,7 @@ class Solver(object):
             # ["predictions"]  # 需要保存节点的名字///////////////////////////////////需要再改改
         )
         with tf.gfile.GFile(
-                os.path.join(cfg.OUTPUT_DIR, cfg.DATA_VERSION, 'model', 'train.pb'),
+                os.path.join(cfg.OUTPUT_DIR, cfg.DATA_VERSION, 'model', 'train.'+step+str(step)+'.pb'),
                 "wb") as f:  # 保存模型
             f.write(output_graph_def.SerializeToString())  # 序列化输出
         print("%d ops in the final graph." % len(output_graph_def.node))

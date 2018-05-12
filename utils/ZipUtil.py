@@ -21,6 +21,10 @@ class ZipUtil(object):
                 else :
                     z.write(os.path.join(dirpath, filename),fpath+filename)
                     print("压缩了{}".format(fpath+filename))
+                if filename[:-4]=="train":#根据步数压缩.pb文件
+                    if str(filename.split('.')[1])==str(step):
+                        z.write(os.path.join(dirpath, filename), fpath + filename)
+                        print("压缩了{}".format(fpath + filename))
             #print("for")
         print ('压缩文件夹成功')
         z.close()
